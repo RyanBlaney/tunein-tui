@@ -1,5 +1,6 @@
 (library
  (name tunein_tui_actions)
  (public_name tunein_tui.actions)
+ (modules actions)
  (libraries lambda-term lwt))
 

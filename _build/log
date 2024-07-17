@@ -1,4 +1,4 @@
-# dune exec ./_build/default/bin/tunein_tui.exe
+# dune build
 # OCAMLPARAM: unset
 # Shared cache: disabled
 # Shared cache location: /home/rblaney/.cache/dune/db
@@ -13,4 +13,4 @@
 #  ; build_dir = In_build_dir "default"
 #  ; instrument_with = []
 #  }
-$ /home/rblaney/.opam/default/bin/ocamlc.opt -config > /tmp/dune_721266_output
+$ /home/rblaney/.opam/default/bin/ocamlc.opt -config > /tmp/dune_6fb5f2_output
