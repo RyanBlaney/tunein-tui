@@ -1,0 +1,195 @@
+(lang dune 3.16)
+(name tunein_tui)
+(sections (lib .) (libexec .) (bin ../../bin) (doc ../../doc/tunein_tui))
+(files
+ (lib
+  (META
+   actions/actions.ml
+   actions/tunein_tui_actions.a
+   actions/tunein_tui_actions.cma
+   actions/tunein_tui_actions.cmi
+   actions/tunein_tui_actions.cmt
+   actions/tunein_tui_actions.cmx
+   actions/tunein_tui_actions.cmxa
+   actions/tunein_tui_actions.ml
+   actions/tunein_tui_actions__Actions.cmi
+   actions/tunein_tui_actions__Actions.cmt
+   actions/tunein_tui_actions__Actions.cmx
+   dune-package
+   keybinds/keybinds.ml
+   keybinds/tunein_tui_keybinds.a
+   keybinds/tunein_tui_keybinds.cma
+   keybinds/tunein_tui_keybinds.cmi
+   keybinds/tunein_tui_keybinds.cmt
+   keybinds/tunein_tui_keybinds.cmx
+   keybinds/tunein_tui_keybinds.cmxa
+   keybinds/tunein_tui_keybinds.ml
+   keybinds/tunein_tui_keybinds__Keybinds.cmi
+   keybinds/tunein_tui_keybinds__Keybinds.cmt
+   keybinds/tunein_tui_keybinds__Keybinds.cmx
+   opam
+   tunein_tui.a
+   tunein_tui.cma
+   tunein_tui.cmi
+   tunein_tui.cmt
+   tunein_tui.cmx
+   tunein_tui.cmxa
+   tunein_tui.ml
+   widgets/logo.ml
+   widgets/my_library.ml
+   widgets/search_bar.ml
+   widgets/selector_window.ml
+   widgets/tunein_tui_widgets.a
+   widgets/tunein_tui_widgets.cma
+   widgets/tunein_tui_widgets.cmi
+   widgets/tunein_tui_widgets.cmt
+   widgets/tunein_tui_widgets.cmx
+   widgets/tunein_tui_widgets.cmxa
+   widgets/tunein_tui_widgets.ml
+   widgets/tunein_tui_widgets__Logo.cmi
+   widgets/tunein_tui_widgets__Logo.cmt
+   widgets/tunein_tui_widgets__Logo.cmx
+   widgets/tunein_tui_widgets__My_library.cmi
+   widgets/tunein_tui_widgets__My_library.cmt
+   widgets/tunein_tui_widgets__My_library.cmx
+   widgets/tunein_tui_widgets__Search_bar.cmi
+   widgets/tunein_tui_widgets__Search_bar.cmt
+   widgets/tunein_tui_widgets__Search_bar.cmx
+   widgets/tunein_tui_widgets__Selector_window.cmi
+   widgets/tunein_tui_widgets__Selector_window.cmt
+   widgets/tunein_tui_widgets__Selector_window.cmx))
+ (libexec
+  (actions/tunein_tui_actions.cmxs
+   keybinds/tunein_tui_keybinds.cmxs
+   tunein_tui.cmxs
+   widgets/tunein_tui_widgets.cmxs))
+ (bin (tunein_tui))
+ (doc (LICENSE)))
+(library
+ (name tunein_tui)
+ (kind normal)
+ (archives (byte tunein_tui.cma) (native tunein_tui.cmxa))
+ (plugins (byte tunein_tui.cma) (native tunein_tui.cmxs))
+ (native_archives tunein_tui.a)
+ (requires
+  tunein_tui.actions
+  tunein_tui.keybinds
+  tunein_tui.widgets
+  cohttp-lwt-unix
+  xmlm
+  lwt
+  lambda-term)
+ (main_module_name Tunein_tui)
+ (modes byte native)
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name tunein_tui)
+     (visibility public)
+     (kind alias)
+     (source (path Tunein_tui) (impl (path tunein_tui.ml-gen))))
+    (name Tunein_tui))
+   (wrapped true))))
+(library
+ (name tunein_tui.actions)
+ (kind normal)
+ (archives
+  (byte actions/tunein_tui_actions.cma)
+  (native actions/tunein_tui_actions.cmxa))
+ (plugins
+  (byte actions/tunein_tui_actions.cma)
+  (native actions/tunein_tui_actions.cmxs))
+ (native_archives actions/tunein_tui_actions.a)
+ (requires lambda-term lwt)
+ (main_module_name Tunein_tui_actions)
+ (modes byte native)
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name tunein_tui_actions)
+     (visibility public)
+     (kind alias)
+     (source
+      (path Tunein_tui_actions)
+      (impl (path actions/tunein_tui_actions.ml-gen))))
+    (name Tunein_tui_actions)
+    (modules
+     (module
+      (obj_name tunein_tui_actions__Actions)
+      (visibility public)
+      (source (path Actions) (impl (path actions/actions.ml))))))
+   (wrapped true))))
+(library
+ (name tunein_tui.keybinds)
+ (kind normal)
+ (archives
+  (byte keybinds/tunein_tui_keybinds.cma)
+  (native keybinds/tunein_tui_keybinds.cmxa))
+ (plugins
+  (byte keybinds/tunein_tui_keybinds.cma)
+  (native keybinds/tunein_tui_keybinds.cmxs))
+ (native_archives keybinds/tunein_tui_keybinds.a)
+ (requires lambda-term lwt)
+ (main_module_name Tunein_tui_keybinds)
+ (modes byte native)
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name tunein_tui_keybinds)
+     (visibility public)
+     (kind alias)
+     (source
+      (path Tunein_tui_keybinds)
+      (impl (path keybinds/tunein_tui_keybinds.ml-gen))))
+    (name Tunein_tui_keybinds)
+    (modules
+     (module
+      (obj_name tunein_tui_keybinds__Keybinds)
+      (visibility public)
+      (source (path Keybinds) (impl (path keybinds/keybinds.ml))))))
+   (wrapped true))))
+(library
+ (name tunein_tui.widgets)
+ (kind normal)
+ (archives
+  (byte widgets/tunein_tui_widgets.cma)
+  (native widgets/tunein_tui_widgets.cmxa))
+ (plugins
+  (byte widgets/tunein_tui_widgets.cma)
+  (native widgets/tunein_tui_widgets.cmxs))
+ (native_archives widgets/tunein_tui_widgets.a)
+ (requires lambda-term lwt)
+ (main_module_name Tunein_tui_widgets)
+ (modes byte native)
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name tunein_tui_widgets)
+     (visibility public)
+     (kind alias)
+     (source
+      (path Tunein_tui_widgets)
+      (impl (path widgets/tunein_tui_widgets.ml-gen))))
+    (name Tunein_tui_widgets)
+    (modules
+     (module
+      (obj_name tunein_tui_widgets__Logo)
+      (visibility public)
+      (source (path Logo) (impl (path widgets/logo.ml))))
+     (module
+      (obj_name tunein_tui_widgets__My_library)
+      (visibility public)
+      (source (path My_library) (impl (path widgets/my_library.ml))))
+     (module
+      (obj_name tunein_tui_widgets__Search_bar)
+      (visibility public)
+      (source (path Search_bar) (impl (path widgets/search_bar.ml))))
+     (module
+      (obj_name tunein_tui_widgets__Selector_window)
+      (visibility public)
+      (source (path Selector_window) (impl (path widgets/selector_window.ml))))))
+   (wrapped true))))

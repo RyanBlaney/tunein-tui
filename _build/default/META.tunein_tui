@@ -1,0 +1,40 @@
+description = ""
+requires =
+"cohttp-lwt-unix
+ lambda-term
+ lwt
+ tunein_tui.actions
+ tunein_tui.keybinds
+ tunein_tui.widgets
+ xmlm"
+archive(byte) = "tunein_tui.cma"
+archive(native) = "tunein_tui.cmxa"
+plugin(byte) = "tunein_tui.cma"
+plugin(native) = "tunein_tui.cmxs"
+package "actions" (
+  directory = "actions"
+  description = ""
+  requires = "lambda-term lwt"
+  archive(byte) = "tunein_tui_actions.cma"
+  archive(native) = "tunein_tui_actions.cmxa"
+  plugin(byte) = "tunein_tui_actions.cma"
+  plugin(native) = "tunein_tui_actions.cmxs"
+)
+package "keybinds" (
+  directory = "keybinds"
+  description = ""
+  requires = "lambda-term lwt"
+  archive(byte) = "tunein_tui_keybinds.cma"
+  archive(native) = "tunein_tui_keybinds.cmxa"
+  plugin(byte) = "tunein_tui_keybinds.cma"
+  plugin(native) = "tunein_tui_keybinds.cmxs"
+)
+package "widgets" (
+  directory = "widgets"
+  description = ""
+  requires = "lambda-term lwt"
+  archive(byte) = "tunein_tui_widgets.cma"
+  archive(native) = "tunein_tui_widgets.cmxa"
+  plugin(byte) = "tunein_tui_widgets.cma"
+  plugin(native) = "tunein_tui_widgets.cmxs"
+)

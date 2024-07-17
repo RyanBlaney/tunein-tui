@@ -1,0 +1,69 @@
+lib: [
+  "_build/install/default/lib/tunein_tui/META"
+  "_build/install/default/lib/tunein_tui/actions/actions.ml" {"actions/actions.ml"}
+  "_build/install/default/lib/tunein_tui/actions/tunein_tui_actions.a" {"actions/tunein_tui_actions.a"}
+  "_build/install/default/lib/tunein_tui/actions/tunein_tui_actions.cma" {"actions/tunein_tui_actions.cma"}
+  "_build/install/default/lib/tunein_tui/actions/tunein_tui_actions.cmi" {"actions/tunein_tui_actions.cmi"}
+  "_build/install/default/lib/tunein_tui/actions/tunein_tui_actions.cmt" {"actions/tunein_tui_actions.cmt"}
+  "_build/install/default/lib/tunein_tui/actions/tunein_tui_actions.cmx" {"actions/tunein_tui_actions.cmx"}
+  "_build/install/default/lib/tunein_tui/actions/tunein_tui_actions.cmxa" {"actions/tunein_tui_actions.cmxa"}
+  "_build/install/default/lib/tunein_tui/actions/tunein_tui_actions.ml" {"actions/tunein_tui_actions.ml"}
+  "_build/install/default/lib/tunein_tui/actions/tunein_tui_actions__Actions.cmi" {"actions/tunein_tui_actions__Actions.cmi"}
+  "_build/install/default/lib/tunein_tui/actions/tunein_tui_actions__Actions.cmt" {"actions/tunein_tui_actions__Actions.cmt"}
+  "_build/install/default/lib/tunein_tui/actions/tunein_tui_actions__Actions.cmx" {"actions/tunein_tui_actions__Actions.cmx"}
+  "_build/install/default/lib/tunein_tui/dune-package"
+  "_build/install/default/lib/tunein_tui/keybinds/keybinds.ml" {"keybinds/keybinds.ml"}
+  "_build/install/default/lib/tunein_tui/keybinds/tunein_tui_keybinds.a" {"keybinds/tunein_tui_keybinds.a"}
+  "_build/install/default/lib/tunein_tui/keybinds/tunein_tui_keybinds.cma" {"keybinds/tunein_tui_keybinds.cma"}
+  "_build/install/default/lib/tunein_tui/keybinds/tunein_tui_keybinds.cmi" {"keybinds/tunein_tui_keybinds.cmi"}
+  "_build/install/default/lib/tunein_tui/keybinds/tunein_tui_keybinds.cmt" {"keybinds/tunein_tui_keybinds.cmt"}
+  "_build/install/default/lib/tunein_tui/keybinds/tunein_tui_keybinds.cmx" {"keybinds/tunein_tui_keybinds.cmx"}
+  "_build/install/default/lib/tunein_tui/keybinds/tunein_tui_keybinds.cmxa" {"keybinds/tunein_tui_keybinds.cmxa"}
+  "_build/install/default/lib/tunein_tui/keybinds/tunein_tui_keybinds.ml" {"keybinds/tunein_tui_keybinds.ml"}
+  "_build/install/default/lib/tunein_tui/keybinds/tunein_tui_keybinds__Keybinds.cmi" {"keybinds/tunein_tui_keybinds__Keybinds.cmi"}
+  "_build/install/default/lib/tunein_tui/keybinds/tunein_tui_keybinds__Keybinds.cmt" {"keybinds/tunein_tui_keybinds__Keybinds.cmt"}
+  "_build/install/default/lib/tunein_tui/keybinds/tunein_tui_keybinds__Keybinds.cmx" {"keybinds/tunein_tui_keybinds__Keybinds.cmx"}
+  "_build/install/default/lib/tunein_tui/opam"
+  "_build/install/default/lib/tunein_tui/tunein_tui.a"
+  "_build/install/default/lib/tunein_tui/tunein_tui.cma"
+  "_build/install/default/lib/tunein_tui/tunein_tui.cmi"
+  "_build/install/default/lib/tunein_tui/tunein_tui.cmt"
+  "_build/install/default/lib/tunein_tui/tunein_tui.cmx"
+  "_build/install/default/lib/tunein_tui/tunein_tui.cmxa"
+  "_build/install/default/lib/tunein_tui/tunein_tui.ml"
+  "_build/install/default/lib/tunein_tui/widgets/logo.ml" {"widgets/logo.ml"}
+  "_build/install/default/lib/tunein_tui/widgets/my_library.ml" {"widgets/my_library.ml"}
+  "_build/install/default/lib/tunein_tui/widgets/search_bar.ml" {"widgets/search_bar.ml"}
+  "_build/install/default/lib/tunein_tui/widgets/selector_window.ml" {"widgets/selector_window.ml"}
+  "_build/install/default/lib/tunein_tui/widgets/tunein_tui_widgets.a" {"widgets/tunein_tui_widgets.a"}
+  "_build/install/default/lib/tunein_tui/widgets/tunein_tui_widgets.cma" {"widgets/tunein_tui_widgets.cma"}
+  "_build/install/default/lib/tunein_tui/widgets/tunein_tui_widgets.cmi" {"widgets/tunein_tui_widgets.cmi"}
+  "_build/install/default/lib/tunein_tui/widgets/tunein_tui_widgets.cmt" {"widgets/tunein_tui_widgets.cmt"}
+  "_build/install/default/lib/tunein_tui/widgets/tunein_tui_widgets.cmx" {"widgets/tunein_tui_widgets.cmx"}
+  "_build/install/default/lib/tunein_tui/widgets/tunein_tui_widgets.cmxa" {"widgets/tunein_tui_widgets.cmxa"}
+  "_build/install/default/lib/tunein_tui/widgets/tunein_tui_widgets.ml" {"widgets/tunein_tui_widgets.ml"}
+  "_build/install/default/lib/tunein_tui/widgets/tunein_tui_widgets__Logo.cmi" {"widgets/tunein_tui_widgets__Logo.cmi"}
+  "_build/install/default/lib/tunein_tui/widgets/tunein_tui_widgets__Logo.cmt" {"widgets/tunein_tui_widgets__Logo.cmt"}
+  "_build/install/default/lib/tunein_tui/widgets/tunein_tui_widgets__Logo.cmx" {"widgets/tunein_tui_widgets__Logo.cmx"}
+  "_build/install/default/lib/tunein_tui/widgets/tunein_tui_widgets__My_library.cmi" {"widgets/tunein_tui_widgets__My_library.cmi"}
+  "_build/install/default/lib/tunein_tui/widgets/tunein_tui_widgets__My_library.cmt" {"widgets/tunein_tui_widgets__My_library.cmt"}
+  "_build/install/default/lib/tunein_tui/widgets/tunein_tui_widgets__My_library.cmx" {"widgets/tunein_tui_widgets__My_library.cmx"}
+  "_build/install/default/lib/tunein_tui/widgets/tunein_tui_widgets__Search_bar.cmi" {"widgets/tunein_tui_widgets__Search_bar.cmi"}
+  "_build/install/default/lib/tunein_tui/widgets/tunein_tui_widgets__Search_bar.cmt" {"widgets/tunein_tui_widgets__Search_bar.cmt"}
+  "_build/install/default/lib/tunein_tui/widgets/tunein_tui_widgets__Search_bar.cmx" {"widgets/tunein_tui_widgets__Search_bar.cmx"}
+  "_build/install/default/lib/tunein_tui/widgets/tunein_tui_widgets__Selector_window.cmi" {"widgets/tunein_tui_widgets__Selector_window.cmi"}
+  "_build/install/default/lib/tunein_tui/widgets/tunein_tui_widgets__Selector_window.cmt" {"widgets/tunein_tui_widgets__Selector_window.cmt"}
+  "_build/install/default/lib/tunein_tui/widgets/tunein_tui_widgets__Selector_window.cmx" {"widgets/tunein_tui_widgets__Selector_window.cmx"}
+]
+libexec: [
+  "_build/install/default/lib/tunein_tui/actions/tunein_tui_actions.cmxs" {"actions/tunein_tui_actions.cmxs"}
+  "_build/install/default/lib/tunein_tui/keybinds/tunein_tui_keybinds.cmxs" {"keybinds/tunein_tui_keybinds.cmxs"}
+  "_build/install/default/lib/tunein_tui/tunein_tui.cmxs"
+  "_build/install/default/lib/tunein_tui/widgets/tunein_tui_widgets.cmxs" {"widgets/tunein_tui_widgets.cmxs"}
+]
+bin: [
+  "_build/install/default/bin/tunein_tui"
+]
+doc: [
+  "_build/install/default/doc/tunein_tui/LICENSE"
+]

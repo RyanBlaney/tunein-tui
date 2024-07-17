@@ -1,0 +1,5 @@
+(library
+ (name tunein_tui_keybinds)
+ (public_name tunein_tui.keybinds)
+ (libraries lambda-term lwt))
+

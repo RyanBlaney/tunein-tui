@@ -1,0 +1,6 @@
+(library
+ (public_name tunein_tui)
+ (name tunein_tui)
+ (libraries 
+   tunein_tui_actions tunein_tui_keybinds tunein_tui_widgets 
+   cohttp-lwt-unix xmlm lwt lambda-term))

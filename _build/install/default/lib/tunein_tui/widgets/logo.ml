@@ -1,0 +1,1 @@
+../../../../../default/lib/widgets/logo.ml
