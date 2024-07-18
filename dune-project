@@ -25,6 +25,7 @@
    cohttp-lwt-unix
    xmlm
    lwt
+   str
    lambda-term)
  (tags
   (topics "to describe" your project)))

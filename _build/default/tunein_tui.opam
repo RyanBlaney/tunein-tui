@@ -17,6 +17,7 @@ depends: [
   "cohttp-lwt-unix"
   "xmlm"
   "lwt"
+  "str"
   "lambda-term"
   "odoc" {with-doc}
 ]

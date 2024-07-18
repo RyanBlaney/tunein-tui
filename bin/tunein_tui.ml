@@ -1,17 +1,30 @@
 open Lwt.Infix
+open LTerm_geom
 open Tunein_tui_widgets.Logo
 open Tunein_tui_widgets.My_library
 open Tunein_tui_widgets.Search_bar
 open Tunein_tui_widgets.Selector_window
 open Tunein_tui_actions.Actions
 
+let size = ref { rows = 0; cols = 0 }
+let cursor_position = ref { row = 0; col = 0 }
+
+let update_cursor_position () =
+  cursor_position := {
+    row = (!size.rows / 3 + !size.rows / 32 + 1);
+    col = (!size.cols / 3 + !size.rows / 32 * 8 + 1 + String.length !search_input)
+  }
+
 let draw ui matrix =
-  let size = LTerm_ui.size ui in
-  let ctx = LTerm_draw.context matrix size in
-  draw_logo ctx size;
-  draw_library ctx size;
-  draw_search_bar ctx size "";
-  draw_selector_window ctx size;
+  size := LTerm_ui.size ui;
+  let ctx = LTerm_draw.context matrix !size in
+  draw_logo ctx !size;
+  draw_library ctx !size;
+  draw_search_bar ctx !size !search_input;
+  draw_selector_window ctx !size;
+  update_cursor_position ();
+  LTerm_ui.set_cursor_position ui !cursor_position;
+  LTerm_ui.set_cursor_visible ui !cursor_active;
   ()
 
 let main () =
