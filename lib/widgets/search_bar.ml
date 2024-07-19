@@ -2,9 +2,17 @@ open Lwt.Infix
 open LTerm_draw
 open LTerm_geom
 open LTerm_event
+open LTerm_style
 open Tunein_tui_types.Types
 
-let draw_search_bar ctx size input = 
+let frame_style current_state = 
+  match current_state with
+  | SearchBarActive ->
+    { none with bold = Some true; underline = Some false; foreground = Some lblue }
+  | _ ->
+    { none with bold = Some true; underline = Some false; foreground = Some default }
+
+let draw_search_bar ctx size input current_state = 
   let padding = size.rows / 32 in
   let rect = { 
     row1 = (size.rows / 3 + padding); 
@@ -12,7 +20,7 @@ let draw_search_bar ctx size input =
     row2 = (size.rows / 3 + padding * 4); 
     col2 = size.cols - padding } in
   let label = Zed_string.of_utf8 "Search" in
-  let style = { LTerm_style.none with bold = Some true; underline = Some false } in
+  let style = frame_style current_state in
   draw_frame_labelled ctx rect ~style ~alignment:H_align_center label LTerm_draw.Heavy;
   
   (* Clear the content area, avoiding the border *)

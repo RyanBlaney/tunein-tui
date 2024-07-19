@@ -3,7 +3,7 @@ open LTerm_event
 open Tunein_tui_widgets
 open Tunein_tui_types.Types
 
-let current_state = ref SelectorWindowActive
+let current_state = ref LibraryActive
 let search_input = ref ""
 let cursor_active = ref false
 
@@ -27,5 +27,8 @@ let handle_key_event ui key =
   | Key { code = LTerm_key.Char c; _ } when Uchar.equal c (Uchar.of_char 'q') ->
       LTerm_ui.quit ui >>= fun () ->
       Lwt.return_unit
-  | _ -> Lwt.return_unit
+  | _ -> 
+    handle_key_event ui current_state cursor_active search_input key;
+
+
 
