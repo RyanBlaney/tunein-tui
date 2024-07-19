@@ -14,7 +14,7 @@ plugin(native) = "tunein_tui.cmxs"
 package "actions" (
   directory = "actions"
   description = ""
-  requires = "lambda-term lwt"
+  requires = "lambda-term lwt tunein_tui.types tunein_tui.widgets"
   archive(byte) = "tunein_tui_actions.cma"
   archive(native) = "tunein_tui_actions.cmxa"
   plugin(byte) = "tunein_tui_actions.cma"
@@ -29,10 +29,19 @@ package "keybinds" (
   plugin(byte) = "tunein_tui_keybinds.cma"
   plugin(native) = "tunein_tui_keybinds.cmxs"
 )
+package "types" (
+  directory = "types"
+  description = ""
+  requires = ""
+  archive(byte) = "tunein_tui_types.cma"
+  archive(native) = "tunein_tui_types.cmxa"
+  plugin(byte) = "tunein_tui_types.cma"
+  plugin(native) = "tunein_tui_types.cmxs"
+)
 package "widgets" (
   directory = "widgets"
   description = ""
-  requires = "lambda-term lwt"
+  requires = "lambda-term lwt tunein_tui.types"
   archive(byte) = "tunein_tui_widgets.cma"
   archive(native) = "tunein_tui_widgets.cmxa"
   plugin(byte) = "tunein_tui_widgets.cma"

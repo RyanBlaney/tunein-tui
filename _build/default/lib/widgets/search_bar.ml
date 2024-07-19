@@ -1,5 +1,8 @@
+open Lwt.Infix
 open LTerm_draw
 open LTerm_geom
+open LTerm_event
+open Tunein_tui_types.Types
 
 let draw_search_bar ctx size input = 
   let padding = size.rows / 32 in
@@ -28,4 +31,44 @@ let draw_search_bar ctx size input =
   draw_string ctx text_rect.row1 text_rect.col1 ~style:LTerm_style.none label;
   ()
 
+  
+let handle_search_input input =
+  Lwt_io.printf "Search input: %s\n" input
 
+
+let handle_navigation ui current_state cursor_active search_input =
+    let rec capture_input () =
+      LTerm_ui.wait ui >>= function
+      | Key { code = LTerm_key.Enter; _ } ->
+          cursor_active := false;
+          current_state := SelectorWindowActive;
+          handle_search_input !search_input >>= fun () ->
+          search_input := "";
+          LTerm_ui.draw ui;
+          Lwt.return_unit
+      | Key { code = LTerm_key.Escape; _ } ->
+          cursor_active := false;
+          current_state := LibraryActive;
+          search_input := "";
+          LTerm_ui.draw ui;
+          Lwt.return_unit
+      | Key { code = LTerm_key.Backspace; _ } ->
+          if String.length !search_input > 0 then begin
+            search_input := String.sub !search_input 0 (String.length !search_input - 1);
+            LTerm_ui.draw ui;
+            capture_input ()
+          end else begin
+            cursor_active := false;
+            current_state := LibraryActive;
+            LTerm_ui.draw ui;
+            Lwt.return_unit
+          end
+      | Key { code = LTerm_key.Char c; _ } ->
+          search_input := !search_input ^ String.make 1 (Uchar.to_char c);
+          LTerm_ui.draw ui;
+          capture_input ()
+      | _ ->
+          LTerm_ui.draw ui;
+          capture_input ()
+    in
+    capture_input ()

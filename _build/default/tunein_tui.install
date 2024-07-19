@@ -31,6 +31,17 @@ lib: [
   "_build/install/default/lib/tunein_tui/tunein_tui.cmx"
   "_build/install/default/lib/tunein_tui/tunein_tui.cmxa"
   "_build/install/default/lib/tunein_tui/tunein_tui.ml"
+  "_build/install/default/lib/tunein_tui/types/tunein_tui_types.a" {"types/tunein_tui_types.a"}
+  "_build/install/default/lib/tunein_tui/types/tunein_tui_types.cma" {"types/tunein_tui_types.cma"}
+  "_build/install/default/lib/tunein_tui/types/tunein_tui_types.cmi" {"types/tunein_tui_types.cmi"}
+  "_build/install/default/lib/tunein_tui/types/tunein_tui_types.cmt" {"types/tunein_tui_types.cmt"}
+  "_build/install/default/lib/tunein_tui/types/tunein_tui_types.cmx" {"types/tunein_tui_types.cmx"}
+  "_build/install/default/lib/tunein_tui/types/tunein_tui_types.cmxa" {"types/tunein_tui_types.cmxa"}
+  "_build/install/default/lib/tunein_tui/types/tunein_tui_types.ml" {"types/tunein_tui_types.ml"}
+  "_build/install/default/lib/tunein_tui/types/tunein_tui_types__Types.cmi" {"types/tunein_tui_types__Types.cmi"}
+  "_build/install/default/lib/tunein_tui/types/tunein_tui_types__Types.cmt" {"types/tunein_tui_types__Types.cmt"}
+  "_build/install/default/lib/tunein_tui/types/tunein_tui_types__Types.cmx" {"types/tunein_tui_types__Types.cmx"}
+  "_build/install/default/lib/tunein_tui/types/types.ml" {"types/types.ml"}
   "_build/install/default/lib/tunein_tui/widgets/logo.ml" {"widgets/logo.ml"}
   "_build/install/default/lib/tunein_tui/widgets/my_library.ml" {"widgets/my_library.ml"}
   "_build/install/default/lib/tunein_tui/widgets/search_bar.ml" {"widgets/search_bar.ml"}
@@ -59,6 +70,7 @@ libexec: [
   "_build/install/default/lib/tunein_tui/actions/tunein_tui_actions.cmxs" {"actions/tunein_tui_actions.cmxs"}
   "_build/install/default/lib/tunein_tui/keybinds/tunein_tui_keybinds.cmxs" {"keybinds/tunein_tui_keybinds.cmxs"}
   "_build/install/default/lib/tunein_tui/tunein_tui.cmxs"
+  "_build/install/default/lib/tunein_tui/types/tunein_tui_types.cmxs" {"types/tunein_tui_types.cmxs"}
   "_build/install/default/lib/tunein_tui/widgets/tunein_tui_widgets.cmxs" {"widgets/tunein_tui_widgets.cmxs"}
 ]
 bin: [

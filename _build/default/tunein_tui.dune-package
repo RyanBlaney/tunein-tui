@@ -35,6 +35,17 @@
    tunein_tui.cmx
    tunein_tui.cmxa
    tunein_tui.ml
+   types/tunein_tui_types.a
+   types/tunein_tui_types.cma
+   types/tunein_tui_types.cmi
+   types/tunein_tui_types.cmt
+   types/tunein_tui_types.cmx
+   types/tunein_tui_types.cmxa
+   types/tunein_tui_types.ml
+   types/tunein_tui_types__Types.cmi
+   types/tunein_tui_types__Types.cmt
+   types/tunein_tui_types__Types.cmx
+   types/types.ml
    widgets/logo.ml
    widgets/my_library.ml
    widgets/search_bar.ml
@@ -62,6 +73,7 @@
   (actions/tunein_tui_actions.cmxs
    keybinds/tunein_tui_keybinds.cmxs
    tunein_tui.cmxs
+   types/tunein_tui_types.cmxs
    widgets/tunein_tui_widgets.cmxs))
  (bin (tunein_tui))
  (doc (LICENSE)))
@@ -101,7 +113,7 @@
   (byte actions/tunein_tui_actions.cma)
   (native actions/tunein_tui_actions.cmxs))
  (native_archives actions/tunein_tui_actions.a)
- (requires lambda-term lwt)
+ (requires lambda-term lwt tunein_tui.widgets tunein_tui.types)
  (main_module_name Tunein_tui_actions)
  (modes byte native)
  (modules
@@ -152,6 +164,35 @@
       (source (path Keybinds) (impl (path keybinds/keybinds.ml))))))
    (wrapped true))))
 (library
+ (name tunein_tui.types)
+ (kind normal)
+ (archives
+  (byte types/tunein_tui_types.cma)
+  (native types/tunein_tui_types.cmxa))
+ (plugins
+  (byte types/tunein_tui_types.cma)
+  (native types/tunein_tui_types.cmxs))
+ (native_archives types/tunein_tui_types.a)
+ (main_module_name Tunein_tui_types)
+ (modes byte native)
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name tunein_tui_types)
+     (visibility public)
+     (kind alias)
+     (source
+      (path Tunein_tui_types)
+      (impl (path types/tunein_tui_types.ml-gen))))
+    (name Tunein_tui_types)
+    (modules
+     (module
+      (obj_name tunein_tui_types__Types)
+      (visibility public)
+      (source (path Types) (impl (path types/types.ml))))))
+   (wrapped true))))
+(library
  (name tunein_tui.widgets)
  (kind normal)
  (archives
@@ -161,7 +202,7 @@
   (byte widgets/tunein_tui_widgets.cma)
   (native widgets/tunein_tui_widgets.cmxs))
  (native_archives widgets/tunein_tui_widgets.a)
- (requires lambda-term lwt)
+ (requires lambda-term lwt tunein_tui.types)
  (main_module_name Tunein_tui_widgets)
  (modes byte native)
  (modules
