@@ -32,6 +32,10 @@ let handle_navigation ui current_state = function
     current_state := SelectorWindowActive;
     LTerm_ui.draw ui;
     Lwt.return_unit
+  | Key { code = LTerm_key.Char c; _ } when Uchar.equal c (Uchar.of_char 'k') ->
+    current_state := LogoActive;
+    LTerm_ui.draw ui;
+    Lwt.return_unit
   | Key { code = LTerm_key.Enter; _ } ->
     handle_select_category ui current_state
   | _ -> Lwt.return_unit

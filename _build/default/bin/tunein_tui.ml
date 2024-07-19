@@ -18,7 +18,7 @@ let update_cursor_position () =
 let draw ui matrix =
   size := LTerm_ui.size ui;
   let ctx = LTerm_draw.context matrix !size in
-  draw_logo ctx !size;
+  draw_logo ctx !size !current_state;
   draw_library ctx !size !current_state;
   draw_search_bar ctx !size !search_input !current_state;
   draw_selector_window ctx !size !current_state;

@@ -45,6 +45,8 @@ let handle_search_input input =
 
 
 let handle_navigation ui current_state cursor_active search_input =
+    cursor_active := true;
+    LTerm_ui.draw ui;
     let rec capture_input () =
       LTerm_ui.wait ui >>= function
       | Key { code = LTerm_key.Enter; _ } ->
@@ -57,7 +59,6 @@ let handle_navigation ui current_state cursor_active search_input =
       | Key { code = LTerm_key.Escape; _ } ->
           cursor_active := false;
           current_state := LibraryActive;
-          search_input := "";
           LTerm_ui.draw ui;
           Lwt.return_unit
       | Key { code = LTerm_key.Backspace; _ } ->
