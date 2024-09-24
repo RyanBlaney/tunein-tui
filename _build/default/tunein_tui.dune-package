@@ -15,6 +15,17 @@
    actions/tunein_tui_actions__Actions.cmi
    actions/tunein_tui_actions__Actions.cmt
    actions/tunein_tui_actions__Actions.cmx
+   api_behavior/search_for_stations.ml
+   api_behavior/tunein_tui_api_behavior.a
+   api_behavior/tunein_tui_api_behavior.cma
+   api_behavior/tunein_tui_api_behavior.cmi
+   api_behavior/tunein_tui_api_behavior.cmt
+   api_behavior/tunein_tui_api_behavior.cmx
+   api_behavior/tunein_tui_api_behavior.cmxa
+   api_behavior/tunein_tui_api_behavior.ml
+   api_behavior/tunein_tui_api_behavior__Search_for_stations.cmi
+   api_behavior/tunein_tui_api_behavior__Search_for_stations.cmt
+   api_behavior/tunein_tui_api_behavior__Search_for_stations.cmx
    dune-package
    keybinds/keybinds.ml
    keybinds/tunein_tui_keybinds.a
@@ -71,6 +82,7 @@
    widgets/tunein_tui_widgets__Selector_window.cmx))
  (libexec
   (actions/tunein_tui_actions.cmxs
+   api_behavior/tunein_tui_api_behavior.cmxs
    keybinds/tunein_tui_keybinds.cmxs
    tunein_tui.cmxs
    types/tunein_tui_types.cmxs
@@ -132,6 +144,38 @@
       (obj_name tunein_tui_actions__Actions)
       (visibility public)
       (source (path Actions) (impl (path actions/actions.ml))))))
+   (wrapped true))))
+(library
+ (name tunein_tui.api_behavior)
+ (kind normal)
+ (archives
+  (byte api_behavior/tunein_tui_api_behavior.cma)
+  (native api_behavior/tunein_tui_api_behavior.cmxa))
+ (plugins
+  (byte api_behavior/tunein_tui_api_behavior.cma)
+  (native api_behavior/tunein_tui_api_behavior.cmxs))
+ (native_archives api_behavior/tunein_tui_api_behavior.a)
+ (requires lambda-term lwt cohttp-lwt-unix xmlm)
+ (main_module_name Tunein_tui_api_behavior)
+ (modes byte native)
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name tunein_tui_api_behavior)
+     (visibility public)
+     (kind alias)
+     (source
+      (path Tunein_tui_api_behavior)
+      (impl (path api_behavior/tunein_tui_api_behavior.ml-gen))))
+    (name Tunein_tui_api_behavior)
+    (modules
+     (module
+      (obj_name tunein_tui_api_behavior__Search_for_stations)
+      (visibility public)
+      (source
+       (path Search_for_stations)
+       (impl (path api_behavior/search_for_stations.ml))))))
    (wrapped true))))
 (library
  (name tunein_tui.keybinds)
@@ -202,7 +246,7 @@
   (byte widgets/tunein_tui_widgets.cma)
   (native widgets/tunein_tui_widgets.cmxs))
  (native_archives widgets/tunein_tui_widgets.a)
- (requires lambda-term lwt tunein_tui.types)
+ (requires lambda-term lwt tunein_tui.types tunein_tui.api_behavior)
  (main_module_name Tunein_tui_widgets)
  (modes byte native)
  (modules

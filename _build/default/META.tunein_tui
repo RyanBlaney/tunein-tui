@@ -20,6 +20,15 @@ package "actions" (
   plugin(byte) = "tunein_tui_actions.cma"
   plugin(native) = "tunein_tui_actions.cmxs"
 )
+package "api_behavior" (
+  directory = "api_behavior"
+  description = ""
+  requires = "cohttp-lwt-unix lambda-term lwt xmlm"
+  archive(byte) = "tunein_tui_api_behavior.cma"
+  archive(native) = "tunein_tui_api_behavior.cmxa"
+  plugin(byte) = "tunein_tui_api_behavior.cma"
+  plugin(native) = "tunein_tui_api_behavior.cmxs"
+)
 package "keybinds" (
   directory = "keybinds"
   description = ""
@@ -41,7 +50,7 @@ package "types" (
 package "widgets" (
   directory = "widgets"
   description = ""
-  requires = "lambda-term lwt tunein_tui.types"
+  requires = "lambda-term lwt tunein_tui.api_behavior tunein_tui.types"
   archive(byte) = "tunein_tui_widgets.cma"
   archive(native) = "tunein_tui_widgets.cmxa"
   plugin(byte) = "tunein_tui_widgets.cma"

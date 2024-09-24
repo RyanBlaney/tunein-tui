@@ -2,5 +2,5 @@
  (name tunein_tui_widgets)
  (public_name tunein_tui.widgets)
  (modules logo my_library search_bar selector_window)
- (libraries lambda-term lwt tunein_tui_types))
+ (libraries lambda-term lwt tunein_tui_types tunein_tui_api_behavior))
 

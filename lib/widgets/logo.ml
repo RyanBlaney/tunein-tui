@@ -1,3 +1,4 @@
+open Lwt.Infix
 open LTerm_geom
 open LTerm_style
 open LTerm_event
@@ -44,8 +45,22 @@ let draw_logo ctx size current_state =
     LTerm_draw.draw_string ctx i padding (Zed_string.of_utf8 line) ~style
   ) lines
 
-
-let handle_select_logo _ui _current_state = 
+let handle_select_logo () = 
+  let command = 
+    if Sys.os_type = "Unix" then
+      ["xdg-open"; "https://tunein.com"]
+    else if Sys.os_type = "Win32" then
+      ["cmd"; "/c"; "start"; "https://tunein.com"]
+    else
+      failwith "Unsupported OS"
+  in
+  let process = 
+    if Sys.os_type = "Unix" then
+      Lwt_process.exec ~stdout:`Dev_null ~stderr:`Dev_null ("", Array.of_list command)
+    else
+      Lwt_process.exec ("", Array.of_list command)
+  in
+  process >>= fun _ ->
   Lwt.return_unit
 
 let handle_navigation ui current_state = function
@@ -58,5 +73,5 @@ let handle_navigation ui current_state = function
     LTerm_ui.draw ui;
     Lwt.return_unit
   | Key { code = LTerm_key.Enter; _ } ->
-    handle_select_logo ui current_state
+    handle_select_logo ()
   | _ -> Lwt.return_unit

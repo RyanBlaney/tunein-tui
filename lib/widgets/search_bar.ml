@@ -4,6 +4,9 @@ open LTerm_geom
 open LTerm_event
 open LTerm_style
 open Tunein_tui_types.Types
+open Selector_window
+
+open Tunein_tui_api_behavior.Search_for_stations
 
 let frame_style current_state = 
   match current_state with
@@ -40,20 +43,27 @@ let draw_search_bar ctx size input current_state =
   ()
 
   
-let handle_search_input input =
-  Lwt_io.printf "Search input: %s\n" input
+let print_station_list station_list =
+  List.iter (fun (name, url) ->
+    Printf.printf "Station: %s\nURL: %s\n" name url
+  ) station_list;
+  Lwt.return_unit
+  
+let handle_search_input input selector_state ui =
+  search_for_stations input >>= fun station_list ->
+    selector_state.stations <- station_list;
+    LTerm_ui.draw ui;
+    Lwt.return_unit
 
-
-let handle_navigation ui current_state cursor_active search_input =
+let handle_navigation ui current_state cursor_active search_input selector_state =
     cursor_active := true;
     LTerm_ui.draw ui;
     let rec capture_input () =
       LTerm_ui.wait ui >>= function
       | Key { code = LTerm_key.Enter; _ } ->
           cursor_active := false;
-          current_state := SelectorWindowActive;
-          handle_search_input !search_input >>= fun () ->
-          search_input := "";
+          current_state := SelectorListActive;
+          handle_search_input !search_input !selector_state ui >>= fun () ->
           LTerm_ui.draw ui;
           Lwt.return_unit
       | Key { code = LTerm_key.Escape; _ } ->
@@ -79,5 +89,5 @@ let handle_navigation ui current_state cursor_active search_input =
       | _ ->
           LTerm_ui.draw ui;
           capture_input ()
-    in
+      in
     capture_input ()
